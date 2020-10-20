@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+      integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+      crossorigin="anonymous"
+    />
+    <title>RGB to Image Gray scale</title>
+  </head>
+  <body>
+    <nav class="navbar navbar-dark bg-dark">
+      <span class="navbar-brand mb-0 h1"><h3>RGB to Gray scale</h3></span>
+    </nav>
+    <div class="container">
+      <form method="POST" action="/" enctype="multipart/form-data">
+        {% csrf_token %}
+        <div class="input-group" style="margin-top: 50px">
+          <div class="custom-file">
+            <input
+              type="file"
+              class="custom-file-input"
+              id="inputGroupFile04"
+              name="image"
+            />
+            <label class="custom-file-label" for="inputGroupFile04"
+              >Choose file</label
+            >
+          </div>
+          <div class="input-group-append">
+            <button class="btn btn-outline-dark" type="submit">
+              Upload
+            </button>
+          </div>
+        </div>
+      </form>
+      <br />
+      <br />
+
+      {% if img_modifications %}
+      <div class="row">
+        <div class="col-6">
+          <h2>The Uploaded Image</h2>
+          <img src="/media/image.jpg" style="height: auto; width: 80%" />
+        </div>
+        <div class="col-6">
+          <h2>The Output Image</h2>
+          <img src="/media/result.jpg" style="height: auto; width: 80%" />
+        </div>
+      </div>
+      
+      {% endif %}
+    </div>
+    <script
+      src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+      integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+      integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+      integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>
